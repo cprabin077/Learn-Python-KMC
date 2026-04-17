@@ -96,3 +96,4 @@ print(isinstance(z, str))  # True
 
 
 cha = "jiha;rj;oafjaljl;jkfiajdsl;aahjkfhflhkljsklsjaljlldkf'akjknnaskagh"
+print(len(cha)) # 66 find the length of the string

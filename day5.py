@@ -37,7 +37,7 @@
 
 # print(a[-7:-3])
 
-# list is a mutable data type
+# list is a mutab0le data type
 
 # Append
 # a = [1,2,3,4,5,6,7]
@@ -142,3 +142,17 @@ a6.sort()
 print(a6)  # [0, 1, 3, 3, 5, 5, 6, 7, 7, 8]
 a6.reverse()
 print(a6)  # [8, 7, 7, 6, 5, 5, 3, 3, 1, 0]
+
+
+# nested list
+b0 = [6,7,8,9]
+a0 = [1, 2, 3, 4, 5, b0]
+print(a0)
+
+# one method
+c0 = [1, 2, 3, 4, 5, [6, 7, 8, 9]]
+print(c0[-1][2])
+
+#  another method
+d0 = c0[-1]
+print(d0[2])
