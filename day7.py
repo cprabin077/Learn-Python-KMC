@@ -75,8 +75,7 @@
 
 # a = [1.2,2,3,4, "test", "hello", True]
 # i = 0
-# while(i <= len(a)):
-#       print(a[i])
-     
-      
+# while(i<len(a)):
+#     print(a[i])
+#     i = i+1
    
