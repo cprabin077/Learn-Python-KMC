@@ -57,55 +57,46 @@ import random
 
 
 # User vs Computer game -> assignment
-# count_user = 0
-# count_computer = 0
-# guess_number = random.randint(1,5)
-# print(guess_number)
-# while(True):
-#     num = int(input("Enter the number: "))
-#     if num == guess_number:
-#         guess_number = random.randint(1,4)
-#         print(guess_number)
-#         count_user += 1
-#     else:
-#         count_computer += 1
+count_user = 0
+count_computer = 0
+guess_number = random.randint(1,5)
+print(guess_number)
+while(True):
+    num = int(input("Enter the number: "))
+    if num == guess_number:
+        count_user += 1
+    else:
+        count_computer += 1
 
-#     if count_user == 5:
-#         print("Hurrah!! You won")
-#         break
-#     if count_computer == 5:
-#         print("Computer won!!")
-#         play = str(input("Do you want to play more?? (y/n): ")).lower()
-#         if(play == "y"):
-#             guess_number = random.randint(1,5)
-#             print(guess_number)
-#             count = 0
-#         else:
-#             print("Thanks for playing")
-#             break
+    if count_user == 5:
+        print("Hurrah!! You won")
+        break
+    if count_computer == 5:
+        print("Computer won!!")
+        break
 
 # rock, paper, scissors -> assignment
-games_data = ["r", "p", "s"]
-data = random.choice(games_data)
-print(data)
+# games_data = ["r", "p", "s"]
+# data = random.choice(games_data)
+# print(data)
 
-while True:
-    user_data = input("Enter your choices (r,p,s): ").lower()
-    if user_data not in games_data:
-        print("Invalid choice: ")
-        continue
-    if data == user_data:
-        print("Game Draw")
-    elif (
-        user_data == "r"
-        and data == "s"
-        or user_data == "s"
-        and data == "p"
-        or user_data == "p"
-        and data == "r"
-    ):
-        print("You won!!")
-        break
-    else:
-        print("You loose!!")
+# while True:
+#     user_data = input("Enter your choices (r,p,s): ").lower()
+#     if user_data not in games_data:
+#         print("Invalid choice: ")
+#         continue
+#     if data == user_data:
+#         print("Game Draw")
+#     elif (
+#         user_data == "r"
+#         and data == "s"
+#         or user_data == "s"
+#         and data == "p"
+#         or user_data == "p"
+#         and data == "r"
+#     ):
+#         print("You won!!")
+#         break
+#     else:
+#         print("You loose!!")
         
