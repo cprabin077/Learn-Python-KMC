@@ -92,12 +92,12 @@
 # print(check_number(5)) # odd
 
 # find maximum number from the list
-a = [1,2,3,5]
-def list1(a):  
-    max = a[0]
-    for i in a:
-        if max < i : 
-            max = i
-    return max 
+# a = [1,2,3,5]
+# def list1(a):  
+#     max = a[0]
+#     for i in a:
+#         if max < i : 
+#             max = i
+#     return max 
 
-print(list1(a))
+# print(list1(a))
