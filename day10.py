@@ -53,7 +53,7 @@ print("-------"*10)
 
 # per(eng = 100, math = 20, comp = 40)
 
-print("-----"*20)
+print("-------"*10)
 # def per(**mdata):
 
 #     if 'eng' not in mdata or'math' not in mdata or 'comp' not in mdata: 
@@ -67,7 +67,7 @@ print("-----"*20)
 # per(eng = 100, math = 20, comp = 40)
 # per(eng = 100, math = 20)
 
-print("-----"*20)
+print("-------"*10)
 # using loop and list
 def per(**mdata):
     choice = ["eng","math","comp"]
