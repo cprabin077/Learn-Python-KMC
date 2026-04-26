@@ -1,7 +1,7 @@
 # Python Object-Oriented Programming (OOP) Covepts
 
 # Class and object
-class Person:  # This is creating a class
+class Person():  # This is creating a class
     a = 10 # defining attribute
     b = 1000  # defining attribute
 
