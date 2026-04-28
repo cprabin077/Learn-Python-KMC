@@ -1,100 +1,100 @@
-# # Example-1: Single Inheritance
-# class Parent():
-#     a = 100
-#     b = 45
-#     def a1(self):
-#         return self.a, self.b
+# Example-1: Single Inheritance
+class Parent():
+    a = 100
+    b = 45
+    def a1(self):
+        return self.a, self.b
 
-# class Child(Parent):
-#     b = "Prabin Chy"
-#     d = 657
-#     def a2(self):
-#         return self.b, self.d
+class Child(Parent):
+    b = "Prabin Chy"
+    d = 657
+    def a2(self):
+        return self.b, self.d
 
-# obj = Child()
-# print(obj.a)
-# print(obj.b)
-# print(obj.a1())
-# print(obj.a2())
+obj = Child()
+print(obj.a)
+print(obj.b)
+print(obj.a1())
+print(obj.a2())
 
-# print("------"*20)
-# # Example-2: Single Inheritance
-# class Parent():
-#     a = 100
-#     b = 45
-#     def add(self):
-#         return self.a + self.b
+print("------"*20)
+# Example-2: Single Inheritance
+class Parent():
+    a = 100
+    b = 45
+    def add(self):
+        return self.a + self.b
 
-# class Child(Parent):
-#     c = "Prabin Chy"
-#     d = 657
+class Child(Parent):
+    c = "Prabin Chy"
+    d = 657
     
-#     def display(self):
-#         return self.add()
+    def display(self):
+        return self.add()
     
-#     def final(self):
-#         return self.add() + self.d
+    def final(self):
+        return self.add() + self.d
 
-# obj = Child()
-# print(obj.a) # 100
-# print(obj.b)    # 45
-# print(obj.d)    # 657
-# print(obj.add()) # 145
-# print(obj.display()) # 145
-# print(obj.final()) # 145 + 657 = 802
+obj = Child()
+print(obj.a) # 100
+print(obj.b)    # 45
+print(obj.d)    # 657
+print(obj.add()) # 145
+print(obj.display()) # 145
+print(obj.final()) # 145 + 657 = 802
 
-# print("------"*20)
-# # Example-3 -> Inheritance with constructor
-# class TestParent():
-#     def __init__(self):
-#         print("Parent Class")
+print("------"*20)
+# Example-3 -> Inheritance with constructor
+class TestParent():
+    def __init__(self):
+        print("Parent Class")
 
-# class TestChild(TestParent):
-#     def __init__(self):
-#         print("Child Class")
-#         # TestParent.__init__(self)
-#         super().__init__() # Preferable
+class TestChild(TestParent):
+    def __init__(self):
+        print("Child Class")
+        # TestParent.__init__(self)
+        super().__init__() # Preferable
 
-# obj = TestChild()  
+obj = TestChild()  
 
-# print("------"*20)
-# # Example-3 -> Single Inheritance with constructor
-# class TestParent():
-#     def __init__(self,x):
-#         print("Parent Class")
+print("------"*20)
+# Example-3 -> Single Inheritance with constructor
+class TestParent():
+    def __init__(self,x):
+        print("Parent Class")
 
-# class TestChild(TestParent):
-#     def __init__(self,a,b,c,d):
-#         print("Child Class")
-#         self.b = b
-#         super().__init__(a) # Preferable
+class TestChild(TestParent):
+    def __init__(self,a,b,c,d):
+        print("Child Class")
+        self.b = b
+        super().__init__(a) # Preferable
 
-#     def test(self):
-#         return self.b # 2
+    def test(self):
+        return self.b # 2
 
-# obj = TestChild(1,2,3,4) 
-# print(obj.test()) # 2
+obj = TestChild(1,2,3,4) 
+print(obj.test()) # 2
 
 
-# print("------"*20)
-# # Example-4 -> Multi-level Inheritance with constructor
-# class TestParent():
-#     def __init__(self,x):
-#         print("Parent Class")
+print("------"*20)
+# Example-4 -> Multi-level Inheritance with constructor
+class TestParent():
+    def __init__(self,x):
+        print("Parent Class")
 
-# class TestChild(TestParent):
-#     def __init__(self,a,b,c,d):
-#         print("Child Class")
-#         self.b = b
-#         super().__init__(a) # Preferable
+class TestChild(TestParent):
+    def __init__(self,a,b,c,d):
+        print("Child Class")
+        self.b = b
+        super().__init__(a) # Preferable
 
-#     def test(self):
-#         return self.b # 2
+    def test(self):
+        return self.b # 2
     
-# class Child(TestChild):
-#     pass
+class Child(TestChild):
+    pass
 
-# obj = TestChild(1,2,3,4) 
+obj = TestChild(1,2,3,4) 
 
 
 # Class Work -> Banking Management System
@@ -134,7 +134,7 @@ class PremiumSavingsAmount(SavingsAmount):
         if self.reward_points >= 100:
             self.balance += 50
             self.reward_points -= 100
-            return f"Redeemed 100 points. Bonus added. Balance: {self.balance}"
+            return f"Redeemed 100 points. Bonus added. Balance: {self.balance}. Reward Points: {self.reward_points}"
         else:
             return "Not enough reward points"
 
@@ -146,4 +146,4 @@ print(acc.withdraw(200)) # Withdrawn 200. Remaining balance: 1300
 print(acc.add_interest()) # Interest added: 65.0. New balance: 1365.0
 
 acc.reward_points = 120
-print(acc.redeem_points()) # Redeemed 100 points. Bonus added. Balance: 1415.0
+print(acc.redeem_points()) # Redeemed 100 points. Bonus added. Balance: 1415.0. Reward Points: 20
