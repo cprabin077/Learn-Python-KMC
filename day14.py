@@ -126,7 +126,7 @@ class SavingsAmount(Account):
 
 
 class PremiumSavingsAmount(SavingsAmount):
-    def __init__(self, account_number, balance=0, interest_rate=5, reward_points=0):
+    def __init__(self, account_number, balance=0, interest_rate=0, reward_points=0):
         super().__init__(account_number, balance, interest_rate)
         self.reward_points = reward_points
 
@@ -139,12 +139,10 @@ class PremiumSavingsAmount(SavingsAmount):
             return "Not enough reward points"
 
 
-acc = PremiumSavingsAmount(6289780928892, 1000) 
+acc = PremiumSavingsAmount(6289780928892, 1000, 5, 120) 
 print(f"Account Number: {acc.account_number}") # Account Number: 6289780928892
 print(f"Opening Balance: {acc.balance}") # Opening Balance: 1000
 print(acc.deposit(500)) # Deposited 500. New balance: 1500
 print(acc.withdraw(200)) # Withdrawn 200. Remaining balance: 1300
 print(acc.add_interest()) # Interest added: 65.0. New balance: 1365.0
-
-acc.reward_points = 120
 print(acc.redeem_points()) # Redeemed 100 points. Bonus added. Balance: 1415.0. Remaining reward Points: 20
