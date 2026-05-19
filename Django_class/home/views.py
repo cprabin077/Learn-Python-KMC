@@ -1,6 +1,7 @@
 from django.shortcuts import redirect, render
 from django.http import HttpResponse, JsonResponse
 
+from home.forms import StudentForm
 from home.models import Student
 
 # Create your views here.
@@ -41,7 +42,23 @@ def student_create(request):
             number = data['number'],
             dob = data['dob']
         )
-        print("This is POST method")
+        # print("This is POST method")
         return redirect('/home/student_list')
     return render(request, "student/create.html")
+
+
+def student_create2(request):
+    form = StudentForm()
+    if request.method == "POST":
+        form = StudentForm(data=request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/home/student_list')
+        else:
+            print(form.errors)    
+
+    context = {
+        'form': form
+    }
+    return render(request, "student/create2.html", context)
 
