@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.http import HttpResponse, JsonResponse
 
 from home.models import Student
@@ -30,4 +30,18 @@ def student_list(request):
         "student": student
     }
     return render(request,'student/index.html', context)
+
+
+def student_create(request):
+    if request.method == "POST":
+        print(request.method)
+        data = request.POST
+        Student.objects.create(
+            name = data['student_name'],
+            number = data['number'],
+            dob = data['dob']
+        )
+        print("This is POST method")
+        return redirect('/home/student_list')
+    return render(request, "student/create.html")
 
