@@ -1,4 +1,4 @@
-from home.views import home, home_json, home_page, student_create, student_create2, student_list, student_update
+from home.views import home, home_json, home_page, student_create, student_create2, student_delete, student_list, student_update
 from django.urls import path
 
 
@@ -10,4 +10,5 @@ urlpatterns = [
     path('student_create/', student_create, name="create"),
     path('student_create2/', student_create2, name="create2"),
     path('student_update/<int:id>/', student_update, name="update"),
+    path('student_delete/<int:id>/', student_delete, name="delete"),
 ]

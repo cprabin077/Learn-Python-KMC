@@ -80,3 +80,9 @@ def student_update(request, id):
 
     return render(request, "student/update.html",{"form":form})
 
+
+def student_delete(request, id):
+    student = Student.objects.filter(id = id).delete()
+    return redirect('/home/student_list')
+
+

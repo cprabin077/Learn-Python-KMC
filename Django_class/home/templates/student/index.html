@@ -79,7 +79,7 @@
           <td>{{i.number}}</td>
           <td>{{i.is_active}}</td>
           <td><a href="{% url 'update' i.id %}"><button >Update</button></a>
-              <a href="#"><button >Delete</button></a>
+              <a href="{% url "delete" i.id %}"><button >Delete</button></a>
           </td>
         </tr>
         {% endfor %}
