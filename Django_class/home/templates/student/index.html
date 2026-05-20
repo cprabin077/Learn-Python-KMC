@@ -53,6 +53,9 @@
 <body>
 
   <div class="table-container">
+    <a href="/home/student_create2/"><button >Add New Student</button></a>
+    <a href="{% url 'create2' %}"> <button >Add New Student 2</button></a><br>
+    
     <th1>Student List</th1>
     <table>
       <thead>
@@ -61,7 +64,8 @@
           <th>Name</th>
           <th>Dob</th>
           <th>Number</th>
-          <th> Active</th>
+          <th>Status</th>
+          <th>Action</th>
 
         </tr>
       </thead>
@@ -74,6 +78,9 @@
           <td>{{i.dob}}</td>
           <td>{{i.number}}</td>
           <td>{{i.is_active}}</td>
+          <td><a href="{% url 'update' i.id %}"><button >Update</button></a>
+              <a href="#"><button >Delete</button></a>
+          </td>
         </tr>
         {% endfor %}
 

@@ -62,3 +62,21 @@ def student_create2(request):
     }
     return render(request, "student/create2.html", context)
 
+
+def student_update(request, id):
+    student = Student.objects.get(id = id)
+    form = StudentForm(instance=student)
+    if request.method == "POST":
+        form = StudentForm(data=request.POST, instance=student)
+        if form.is_valid():
+            form.save()
+            return redirect('/home/student_list')
+        else:
+            print(form.errors)    
+
+    context = {
+        'form': form
+    }
+
+    return render(request, "student/update.html",{"form":form})
+
