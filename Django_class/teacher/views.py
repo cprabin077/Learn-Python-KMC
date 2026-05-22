@@ -24,10 +24,10 @@ def teacher_create(request):
             return redirect('teacher')   # use URL name
         else:
             print(form.errors)   # IMPORTANT
-
-    return render(request, 'teacher/create.html', {
+    context =  {
         'form': form
-    })
+    }
+    return render(request, 'teacher/create.html',context)
 
 # update the data of teacher
 def teacher_update(request, id):
@@ -42,10 +42,10 @@ def teacher_update(request, id):
             return redirect('teacher')
         else:
             print(form.errors)
-
-    return render(request, 'teacher/update.html', {
+    context={
         'form': form
-    })
+    }
+    return render(request, 'teacher/update.html',context)
 
 # delete the teacher from the list
 def teacher_delete(request, id):
@@ -59,9 +59,10 @@ from teacher.models import Grade
 
 def grade_list(request):
     grades = Grade.objects.all()
-    return render(request, 'grade/index.html', {
+    context = {
         'grades': grades
-    })
+    }
+    return render(request, 'grade/index.html',context)
 
 
 def grade_create(request):
@@ -72,10 +73,14 @@ def grade_create(request):
         if form.is_valid():
             form.save()
             return redirect('grade')
-
-    return render(request, 'grade/create.html', {
+        else:
+            print(form.errors)
+        
+    context = {
         'form': form
-    })
+    }
+
+    return render(request, 'grade/create.html',context)
 
 
 def grade_update(request, id):
@@ -87,10 +92,14 @@ def grade_update(request, id):
         if form.is_valid():
             form.save()
             return redirect('grade')
+        else:
+            print(form.errors)
 
-    return render(request, 'grade/update.html', {
+    context = {
         'form': form
-    })
+    }
+
+    return render(request, 'grade/update.html',context)
 
 
 def grade_delete(request, id):
