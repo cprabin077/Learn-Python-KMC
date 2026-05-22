@@ -21,9 +21,9 @@
             <div class="mb-3">
                 <label class="form-label">Category</label>
                 <select name="category" multiple class="form-select">
-                    {% for category in categories %}
-                    <option value="{{ category.id }}">
-                        {{ category.name }}
+                    {% for c in category %}
+                    <option value="{{ c.id }}">
+                        {{ c.name }}
                     </option>
                     {% endfor %}
                 </select>

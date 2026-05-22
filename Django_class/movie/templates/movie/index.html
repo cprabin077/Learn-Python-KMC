@@ -7,13 +7,19 @@
 <body>
 
 <div class="container mt-5">
+        
     <div class="card shadow p-4">
-
         <div class="d-flex justify-content-between mb-3">
             <h2>Movie List</h2>
-            {% comment %} <a href="{% url 'movie_create' %}" class="btn btn-primary">
-                Add Movie
-            </a> {% endcomment %}
+            <div>
+                <a href="{% url 'movie_create' %}" class="btn btn-primary">
+                    Add Movie
+                </a>
+                <a href="{% url 'category_create' %}" class="btn btn-primary">
+                    Add Category
+                </a>
+            </div>
+            
         </div>
 
         <table class="table table-bordered table-striped">
@@ -23,19 +29,29 @@
                     <th>Category</th>
                     <th>Release Date</th>
                     <th>Language</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
-                {% for movie in movies %}
+                {% for m in movie %}
                 <tr>
-                    <td>{{ movie.name }}</td>
+                    <td>{{ m.name }}</td>
                     <td>
-                        {% for cat in movie.category.all %}
-                            {{ cat.name }}{% if not forloop.last %}, {% endif %}
+                        {% for c in m.category.all %}
+                            {{ c.name }}{% if not forloop.last %}, {% endif %}
                         {% endfor %}
                     </td>
-                    <td>{{ movie.release_date }}</td>
-                    <td>{{ movie.language }}</td>
+                    <td>{{ m.release_date }}</td>
+                    <td>{{ m.language }}</td>
+                    <td>
+                        <a href="#" class="btn btn-success">
+                            Update
+                        </a>
+                        <a href="#" class="btn btn-danger">
+                            Delete
+                        </a>
+
+                    </td>
                 </tr>
                 {% empty %}
                 <tr>
