@@ -4,6 +4,7 @@ from teacher.forms import TeacherForm
 from teacher.models import Teacher
 
 # Create your views here.
+
 # diaplay all the list of teacher
 def teacher_list(request):
     data = Teacher.objects.all()
