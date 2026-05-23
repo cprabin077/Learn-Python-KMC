@@ -43,10 +43,10 @@
                         {% endif %}
                     </td>
                     <td>
-                        <a href="#" class="btn btn-success">
+                        <a href="{% url "category_update" c.id %}" class="btn btn-success">
                             Update
                         </a>
-                        <a href="#" class="btn btn-danger">
+                        <a href="{% url "category_delete" c.id %}" class="btn btn-danger">
                             Delete
                         </a>
                     </td>

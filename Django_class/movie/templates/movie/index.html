@@ -44,10 +44,10 @@
                     <td>{{ m.release_date }}</td>
                     <td>{{ m.language }}</td>
                     <td>
-                        <a href="#" class="btn btn-success">
+                        <a href="{% url "movie_update" m.id %}" class="btn btn-success">
                             Update
                         </a>
-                        <a href="#" class="btn btn-danger">
+                        <a href="{% url "movie_delete" m.id %}" class="btn btn-danger">
                             Delete
                         </a>
 
