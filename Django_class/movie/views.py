@@ -33,6 +33,30 @@ def category_create(request):
     return render(request, 'category/create.html', context)
 
 
+def category_update(request, id):
+    category = Category.objects.get(id = id)
+    form = CategoryForm(instance=category)
+
+    if request.method == "POST":
+        form = CategoryForm(request.POST, instance=category)
+
+        if form.is_valid():
+            form.save()
+            return redirect('category_list')
+        else:
+            print(form.errors)
+
+    context={
+            'form': form
+    }
+    return render(request, 'category/update.html',context) 
+
+
+def category_delete(request, id):
+    category = Category.objects.get(id=id).delete()
+    return redirect('category_list')
+
+
 # Movie
 def movie_list(request):
     movie = Movie.objects.all()
@@ -44,21 +68,47 @@ def movie_list(request):
     return render(request, 'movie/index.html', context)
 
 def movie_create(request):
-    movie = MovieForm()
+    form = MovieForm()
     category = Category.objects.all()
 
     if request.method == 'POST':
-        movie = MovieForm(data=request.POST)
-        if movie.is_valid():
-            movie.save()
+        form = MovieForm(request.POST)
+        if form.is_valid():
+            form.save()
             return redirect('movie_list')
         else:
-            print(movie.errors)
+            print(form.errors)
 
     context = {
-        "movie": movie,
+        "form": form,
         "category": category
     }
 
     return render(request, 'movie/create.html', context)
+
+
+def movie_update(request, id):
+    movie = Movie.objects.get(id = id)
+    form = MovieForm(instance=movie)
+    category = Category.objects.all()
+    
+    if request.method == "POST":
+        form = MovieForm(request.POST, instance=movie)
+
+        if form.is_valid():
+            form.save()
+            return redirect('movie_list')
+        else:
+            print(form.errors)
+
+    context={
+            'form': form,
+            "category": category
+    }
+    return render(request, 'movie/update.html',context) 
+
+
+def movie_delete(request, id):
+    movie = Movie.objects.get(id=id).delete()
+    return redirect('movie_list')
 
