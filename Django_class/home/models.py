@@ -17,3 +17,15 @@ class Student(models.Model):
 
     class Meta:
         db_table = "student" # mathiko table name lai 'student' table ma override garnalai
+
+class StudentProfile(models.Model):
+    student = models.OneToOneField(Student,on_delete=models.CASCADE)
+    student_card_no= models.PositiveIntegerField(unique=True)
+    address = models.CharField(max_length=50, null=True, blank=True)
+    email = models.EmailField()
+
+    def __str__(self):
+        return f'{self.student_id}'
+
+    class Meta:
+        db_table = "student_profile"
