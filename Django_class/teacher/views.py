@@ -4,6 +4,8 @@ from teacher.forms import TeacherForm
 from teacher.models import Teacher
 from django.contrib.auth.decorators import login_required
 from django.views.generic.list import ListView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+
 
 # Create your views here.
 
@@ -59,10 +61,32 @@ def teacher_delete(request, id):
     teacher = Teacher.objects.filter(id=id).delete()
     return redirect('teacher')
 
+# List View
 class TeacherView(ListView):
     model = Teacher
     template_name = "teacher/index.html"
     context_object_name = 'teacher'
+
+class TeacherCreate(CreateView):
+    model = Teacher
+    form_class = TeacherForm
+    template_name = "teacher/create.html"
+    success_url = '/teacher/teacher'
+
+
+class TeacherUpdate(UpdateView):
+    model = Teacher
+    form_class = TeacherForm
+    template_name = "teacher/update.html"
+    success_url = '/teacher/teacher'
+
+
+class TeacherDelete(DeleteView):
+    model = Teacher
+    form_class = TeacherForm
+    template_name = 'teacher/delete.html'
+    success_url = '/teacher/teacher'
+
 
 
 from teacher.forms import GradeForm
