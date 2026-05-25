@@ -1,6 +1,6 @@
 from django.urls import path
 
-from teacher.views import grade_create, grade_delete, grade_list, grade_update, teacher_create, teacher_delete, teacher_list, teacher_update
+from teacher.views import grade_create, grade_delete, grade_list, grade_update, teacher_create, teacher_delete, teacher_list, teacher_update, TeacherView
 
 urlpatterns=[
     # grade
@@ -14,4 +14,5 @@ urlpatterns=[
     path('teacher_create/', teacher_create, name='tcreate'),
     path('teacher_update/<int:id>/', teacher_update, name='tupdate'),
     path('teacher_delete/<int:id>/', teacher_delete, name='tdelete'),
+    path('teacher-class-list',TeacherView.as_view(), name="teacher-class")
 ]

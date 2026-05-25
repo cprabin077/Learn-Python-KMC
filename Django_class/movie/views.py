@@ -2,10 +2,12 @@ from django.shortcuts import redirect, render
 
 from movie.forms import CategoryForm, MovieForm
 from movie.models import Category, Movie
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
 # Category
+@login_required
 def category_list(request):
     category = Category.objects.all()
 
@@ -15,7 +17,7 @@ def category_list(request):
 
     return render(request, 'category/index.html', context)
 
-
+@login_required
 def category_create(request):
     category = CategoryForm()
 
@@ -58,6 +60,7 @@ def category_delete(request, id):
 
 
 # Movie
+@login_required
 def movie_list(request):
     movie = Movie.objects.all()
 
@@ -67,6 +70,8 @@ def movie_list(request):
 
     return render(request, 'movie/index.html', context)
 
+
+@login_required
 def movie_create(request):
     form = MovieForm()
     category = Category.objects.all()

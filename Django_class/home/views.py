@@ -3,6 +3,7 @@ from django.http import HttpResponse, JsonResponse
 
 from home.forms import StudentForm
 from home.models import Student
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def home(request):
@@ -24,7 +25,7 @@ def home_page(request):
     # }
     return render(request, "home/index.html")
 
-
+@login_required
 def student_list(request):
     student = Student.objects.all()
     context = {
@@ -46,7 +47,7 @@ def student_create(request):
         return redirect('/home/student_list')
     return render(request, "student/create.html")
 
-
+@login_required
 def student_create2(request):
     form = StudentForm()
     if request.method == "POST":
