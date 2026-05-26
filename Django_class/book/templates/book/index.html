@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book List</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+
+    <h1>Book List</h1>
+
+    <a href="{% url 'book_create' %}" class="btn btn-primary mb-3">
+        Add Book
+    </a>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Genre</th>
+                <th>Language</th>
+                <th>Staring</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+        {% for book in books %}
+            <tr>
+                <td>{{ book.name }}</td>
+
+                <td>
+                    {% for genre in book.genre.all %}
+                        {{ genre.name }},
+                    {% endfor %}
+                </td>
+
+                <td>{{ book.language }}</td>
+                <td>{{ book.staring }}</td>
+
+                <td>
+                    <a href="{% url 'book_update' book.id %}" class="btn btn-warning btn-sm">
+                        Edit
+                    </a>
+
+                    <a href="{% url 'book_delete' book.id %}" class="btn btn-danger btn-sm">
+                        Delete
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+</body>
+</html>
